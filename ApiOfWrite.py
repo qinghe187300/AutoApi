@@ -95,7 +95,7 @@ def uploadFile(a,filesname,f):
     
         
 # 发送邮件到自定义邮箱
- def sendEmail(a,subject,content):
+def sendEmail(a,subject,content):
      url=r'https://graph.microsoft.com/v1.0/me/sendMail'
      mailmessage={
                  'message':{

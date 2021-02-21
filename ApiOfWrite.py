@@ -101,12 +101,15 @@ def sendEmail(a,subject,content):
                 'message':{
                           'subject': subject,
                           'body': {'contentType': 'Text', 'content': content},
-                          'toRecipients': [{'emailAddress': {'address': emailaddress}}],
+                          'toRecipients': [{'emailAddress': {'address': other_config['email'][0]}}],
                           },
                 'saveToSentItems': 'true',
                 }            
-    apiReq('post',a,url,json.dumps(mailmessage))
-	
+    if apiReq('post',a,url,json.dumps(mailmessage)).status_code >= 300 :
+        log_list[a]=log_list[a]+sys._getframe().f_code.co_name+' ,'
+        
+    	
+		
 #修改excel(这函数分离好像意义不大)
 #api-获取itemid: https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl
 def excelWrite(a,filesname,sheet):

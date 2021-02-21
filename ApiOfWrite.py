@@ -105,8 +105,7 @@ def sendEmail(a,subject,content):
                           },
                 'saveToSentItems': 'true',
                 }            
-    if apiReq('post',a,url,json.dumps(mailmessage)).status_code >= 300 :
-        log_list[a]=log_list[a]+sys._getframe().f_code.co_name+' ,'
+    apiReq('post',a,url,json.dumps(mailmessage))
         
     	
 		

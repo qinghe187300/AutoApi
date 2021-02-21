@@ -95,15 +95,15 @@ def uploadFile(a,filesname,f):
     
         
 # 发送邮件到自定义邮箱
-def sendEmail(a,subject,content):
-    url=r'https://graph.microsoft.com/v1.0/me/sendMail'
-    mailmessage={
-                'message':{
-                          'subject': subject,
-                          'body': {'contentType': 'Text', 'content': content},
-                          'toRecipients': [{'emailAddress': {'address': emailaddress}}],
-                          },
-                'saveToSentItems': 'true',
+ def sendEmail(a,subject,content):
+     url=r'https://graph.microsoft.com/v1.0/me/sendMail'
+     mailmessage={
+                 'message':{
+                           'subject': subject,
+                           'body': {'contentType': 'Text', 'content': content},
+                           'toRecipients': [{'emailAddress': {'address': emailaddress}}],
+                           },
+                 'saveToSentItems': 'true',
                 }            
     apiReq('post',a,url,json.dumps(mailmessage))	
 	
@@ -231,12 +231,12 @@ headers={'Accept-Language': 'zh-CN'}
 weather=req.get(r'http://wttr.in/'+city+r'?format=4&?m',headers=headers).text
 
 #实际运行
-for a in range(1, int(app_num)+1):
-    print('账号 '+str(a))
-    print('发送邮件 ( 邮箱单独运行，每次运行只发送一次，防止封号 )')
-    if emailaddress != '':
-        sendEmail(a,'weather',weather)
-print('')
+# for a in range(1, int(app_num)+1):
+#     print('账号 '+str(a))
+#     print('发送邮件 ( 邮箱单独运行，每次运行只发送一次，防止封号 )')
+#     if emailaddress != '':
+#        sendEmail(a,'weather',weather)
+# print('')
 #其他api
 for _ in range(1,config['rounds']+1):
     timeDelay('rounds_delay')  

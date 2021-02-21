@@ -231,12 +231,12 @@ headers={'Accept-Language': 'zh-CN'}
 weather=req.get(r'http://wttr.in/'+city+r'?format=4&?m',headers=headers).text
 
 #实际运行
-#for a in range(1, int(app_num)+1):
-#    print('账号 '+str(a))
-#    print('发送邮件 ( 邮箱单独运行，每次运行只发送一次，防止封号 )')
-#    if emailaddress != '':
-#       sendEmail(a,'weather',weather)
-#print('')
+a=3
+print('账号 '+str(a))
+print('发送邮件 ( 邮箱单独运行，每次运行只发送一次，防止封号 )')
+if emailaddress != '':
+    sendEmail(a,'weather',weather)
+print('')
 #其他api
 for _ in range(1,config['rounds']+1):
     timeDelay('rounds_delay')  

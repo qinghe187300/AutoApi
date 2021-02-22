@@ -229,7 +229,7 @@ weather=req.get(r'http://wttr.in/'+city+r'?format=4&?m',headers=headers).text
 
 #实际运行
 #a=random.randint(1,4)
-a=1
+a=2
 print('账号 '+str(a))
 print('发送邮件 ( 邮箱单独运行，每次运行只发送一次，防止封号 )')
 if emailaddress != '':

@@ -97,18 +97,12 @@ def uploadFile(a,filesname,f):
 # 发送邮件到自定义邮箱
 def sendEmail(a,subject,content):
     url=r'https://graph.microsoft.com/v1.0/me/sendMail'
-    mailmessage={
-                'message':{
-                          'subject': subject,
-                          'body': {'contentType': 'Text', 'content': content},
-                          'toRecipients': [{'emailAddress': {'address': other_config['email'][0]}}],
-                          },
-                'saveToSentItems': 'true',
-                }            
-    if apiReq('post',a,url,json.dumps(mailmessage)).status_code >= 300 :
-        if sys._getframe().f_code.co_name not in log_list[a]:
-            log_list[a]=log_list[a]+sys._getframe().f_code.co_name+','
-    	
+    mailmessage={'message': {'subject': subject,
+                             'body': {'contentType': 'Text', 'content': content},
+                             'toRecipients': [{'emailAddress': {'address': emailaddress}}],
+                             },
+                 'saveToSentItems': 'true'}            
+    apiReq('post',a,url,json.dumps(mailmessage))	
 	
 #修改excel(这函数分离好像意义不大)
 #api-获取itemid: https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl

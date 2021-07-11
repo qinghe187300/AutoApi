@@ -8,7 +8,7 @@ redirect_uri=os.getenv('REDIRECT_URI')
 if app_num == '':
     app_num = '1'
 if redirect_uri =='':
-    redirect_uri = r'https://login.microsoftonline.com/common/oauth2/nativeclient'
+    redirect_uri = r'http://localhost:53682/'
 access_token_list=['wangziyingwen']*int(app_num)
 ###########################
 # config选项说明

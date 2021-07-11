@@ -10,7 +10,7 @@ redirect_uri=os.getenv('REDIRECT_URI')
 if app_num == '':
     app_num='1'
 if redirect_uri =='':
-    redirect_uri = r'https://login.microsoftonline.com/common/oauth2/nativeclient'
+    redirect_uri = r'http://localhost:53682/'
 gh_token=os.getenv('GH_TOKEN')
 gh_repo=os.getenv('GH_REPO')
 #ms_token=os.getenv('MS_TOKEN')
